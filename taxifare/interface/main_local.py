@@ -22,6 +22,15 @@ def preprocess_and_train(min_date:str = '2009-01-01', max_date:str = '2015-01-01
     - Compute & save a validation performance metric
     """
 
+    LOCAL_DATA_PATH = Path('~').joinpath(".lewagon", "mlops", "data").expanduser()
+    GCP_PROJECT_WAGON = "wagon-public-datasets"
+    BQ_DATASET = $BQ_DATASET
+    DATA_SIZE = $DATA_SIZE  # raw_200k is a randomly sampled materialized view from "raw_all" data table
+    MIN_DATE = '2009-01-01'
+    MAX_DATE = '2015-01-01'
+    COLUMN_NAMES_RAW = ('fare_amount',	'pickup_datetime', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'passenger_count')
+    
+    
     print(Fore.MAGENTA + "\n ⭐️ Use case: preprocess_and_train" + Style.RESET_ALL)
 
     min_date = parse(min_date).strftime('%Y-%m-%d') # e.g '2009-01-01'
